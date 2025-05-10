@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bài 1</title>
+    <style>
+      .thuoctinh{
+        list-style-type: square;
+        margin-bottom: 20px;
+      }
+
+      .thuoctinh2{
+        margin-bottom: 20px;
+      }
+
+      ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+      }
+
+      li {
+          float: left;
+      }
+
+   
+     li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 16px;
+          text-decoration: none;
+      }
+
+      li a:hover {
+          background-color: #111111;
+      }
+    </style>
+  </head>
+
+  <body>
+
+  <!--Dùng thẻ <ul> để định nghĩa một danh sách không xếp thứ tự
+  Dùng thuộc tính CSS list-style-type để định nghĩa biểu tượng cho các phần tử trong danh sách
+  Dùng thẻ <ol> để định nghĩa một danh sách xếp thứ tự
+  Dùng thuộc tính type để định nghĩa kiểu đánh thứ tự
+  Dùng thẻ <li> để định nghĩa một phần tử  trong danh sách
+  Dùng thẻ <dl> để định nghĩa một danh sách miêu tả
+  Dùng thẻ <dt> để định nghĩa một thuật ngữ
+  Dùng thẻ <dd> để miêu tả thuật ngữ ngay phía trên nó trong danh sách miêu tả
+  Có thể lồng các danh sách bên trong các danh sách
+  Các phần tử trong danh sách có thể chứa các thành phần HTML khác
+  Dùng thuộc tính CSS float:left hoặc display:inline để hiển thị danh sách nằm ngang  -->
+
+  <ul class="thuoctinh">
+    <li>Coffe</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ul>
+
+  <ol class="thuoctinh2" type="i">
+    <li>Coffe</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ol>
+
+  <dl>
+    <dt>Coffee</dt>
+    <dd>- black hot drink</dd>
+    <dt>Milk</dt>
+    <dd>- white cold drink</dd>
+  </dl>
+
+
+
+  <!-- Ta có thể lồng danh sách vào một danh sách khác, tạo thành danh sách bên trong danh sách, tiếng Anh gọi là nested list: -->
+  <ul>
+    <li>Coffee</li>
+    <li>Tea
+      <ul>
+        <li>Black tea</li>
+        <li>Green tea</li>
+      </ul>
+    </li>
+    <li>Milk</li>
+  </ul>
+
+
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  </body>
+  </html>
