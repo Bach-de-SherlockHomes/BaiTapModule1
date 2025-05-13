@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Others Form</title>
+  <style>
+    .test{
+      display: grid;
+      grid-template-columns: 100px 150px;
+    }
+    
+    label{
+      text-align: left;
+    }
+
+    form{
+      background-color: lightyellow;
+    }
+
+  </style>
+</head>
+
+<body>
+  <center>
+    <form action="" style="width: 400px;">
+      <h1 style="text-transform: uppercase; background-color: aquamarine; text-align: left;">Đăng ký học viên</h1>
+
+      <div class="test">
+        <label for="ho_ten">Họ và tên</label>
+        <input type="text" name="hoten" >
+      </div>
+      <br>
+      
+      <div class="test">
+      <label for="DOB">Ngày sinh</label>
+      <input type="text" name="ngaysinh">
+      </div>
+      <br>
+
+      <div class="test">
+      <label for="sex">Giới tính</label>
+      <div style="text-align: left;"><input type="radio" name="sex" >Nam
+      <input type="radio" name="sex">Nữ</div>
+      </div>
+      <br>
+
+      <div class="test">
+      <label for="address">Địa chỉ</label>
+      <textarea name="address"></textarea>
+      </div>
+
+      <br>
+      <div class="test">
+      <label for="class">Lớp</label>
+      <select name="class">
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+      </div>
+      <br>
+
+      <div class="test">
+      <label for="email">Email</label>
+      <input type="email" name="email"></input>
+      </div>
+      <br>
+
+      <div class="test">
+      <label for="SDT">Điện thoại</label>
+      <input type="text" name="SDT"></input>
+      </div>
+
+      <br>
+      <button type="submit">Đăng ký</button>
+      <button type="reset">Nhập lại</button>
+    
+    </form>
+  </center>
+</body>
+
+</html>
