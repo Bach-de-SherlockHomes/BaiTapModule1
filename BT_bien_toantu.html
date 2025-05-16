@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biến, kiểu dữ liệu và toán tử</title>
+</head>
+
+<body>
+  <h1>Bài 1</h1>
+  <label for="vatly">Vật lý</label>
+  <input type="number" id="diemVL">
+  <label for="hoa">Hóa học</label>
+  <input type="number" id="diemhoahoc">
+  <label for="sinh">Sinh học</label>
+  <input type="number" id="diemsinh">
+  <br>
+  <br>
+  <button onclick="tinhtoan();">Tính toán</button>
+  <p id="toanhoasinh"></p>
+  <br>
+  <h1>Bài 2</h1>
+  <label for="doC">Độ C</label>
+  <input type="number" id="doC" onkeydown="doC_doF(event);">
+  <br>
+  <br>
+  <label for="doF">Độ F</label>
+  <input type="number" id="doF">
+
+  <h1>Bài 3 + Bài 4</h1>
+  <label for="R">Nhập bán kính</label>
+  <input type="number" id="R" onkeydown="CV_DT(event);">
+  <p id="chuvi_dientich"></p>
+
+  <script>
+    function tinhtoan() {
+      let diemvatly = Number(document.getElementById('diemVL').value);
+      let diemhoahoc = Number(document.getElementById('diemhoahoc').value);
+      let diemsinh = Number(document.getElementById('diemsinh').value);
+      document.getElementById('toanhoasinh').innerHTML = `Tổng điểm là: ${diemvatly + diemhoahoc + diemsinh}. Điểm trung bình là ${(diemvatly + diemhoahoc + diemsinh) / 3}`
+    }
+
+    function doC_doF() {
+      let sodo = Number(document.getElementById('doC').value);
+      if (event.key == 'Enter' || event.key == 'Tab') {
+        document.getElementById('doF').value = (sodo * 9 / 5) + 32
+      }
+    }
+
+    function CV_DT() {
+      let bankinh = Number(document.getElementById('R').value);
+      if (event.key == 'Enter') {
+      document.getElementById('chuvi_dientich').innerHTML = `Chu vi hình tròn là ${2*3.14*bankinh}. Diện tích hình tròn là ${3.14*bankinh*bankinh};`
+      }
+    }
+  </script>
+</body>
+
+</html>
