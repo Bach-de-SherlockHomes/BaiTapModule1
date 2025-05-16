@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+
+  <style>
+    button{
+      width: 100px;
+      height: 42px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      background-color: rgb(243, 245, 246);
+    }
+
+    button:hover{
+      background-color: rgb(188, 187, 187);
+    }
+  </style>
+</head>
+<body>  
+  <div>
+    <div>
+      <input id="nhap" type="number" placeholder="0" style="width: 400px;height: 50px ;text-align: right;">
+    </div>
+    <div>
+      <table>
+        <tr>
+          <td><button>(</button></td>
+          <td><button>)</button></td>
+          <td><button onclick="Calculate();checkOperator = 5; clickNumber ='0'; checkDot =1;">%</button></td>
+          <td><button onclick="clickNumber ='0';a=0;checkOperator =0; result=0;document.getElementById('nhap').value = a;">AC</button></td>
+        </tr>
+
+        <tr>
+          <td><button onclick="holdnumber(7);a = holder; document.getElementById('nhap').value = a;">7</button></td>
+          <td><button onclick="holdnumber(8);a = holder; document.getElementById('nhap').value = a;">8</button></td>
+          <td><button onclick="holdnumber(9);a = holder; document.getElementById('nhap').value = a;">9</button></td>
+          <td><button onclick="Calculate();checkOperator = 4; clickNumber ='0';checkDot =1; ">/</button></td>
+
+        <tr>
+          <td><button onclick="holdnumber(4);a = holder; document.getElementById('nhap').value = a;">4</button></td>
+          <td><button onclick="holdnumber(5);a = holder; document.getElementById('nhap').value = a;">5</button></td>
+          <td><button onclick="holdnumber(6);a = holder; document.getElementById('nhap').value = a;">6</button></td>
+          <td><button onclick="Calculate();checkOperator = 3; clickNumber ='0'; checkDot =1;">X</button></td>
+        </tr>
+
+        <tr>
+          <td><button onclick="holdnumber(1);a = holder; document.getElementById('nhap').value = a;">1</button></td>
+          <td><button onclick="holdnumber(2);a = holder; document.getElementById('nhap').value = a;">2</button></td>
+          <td><button onclick="holdnumber(3);a = holder; document.getElementById('nhap').value = a;">3</button></td>
+          <td><button onclick="Calculate();checkOperator = 2; clickNumber ='0'; checkDot =1;">-</button></td>
+        </tr>
+
+        <tr>
+          <td><button onclick="holdnumber(0);a = holder; console.log(a);">0</button></td>
+          <td><button onclick=" if (checkDot == 1) {holdnumber('.'); a = holder; checkDot = 0 } ; ">.</button></td>
+          <td><button onclick="Calculate();clickNumber ='0';a=0;checkOperator =6; document.getElementById('nhap').value = result;checkDot =1;">=</button></td>
+          <td><button onclick="Calculate();checkOperator = 1; clickNumber ='0';checkDot =1; ">+</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+  <p id="test"></p>
+  <script>
+    let clickNumber ='0';
+    let holder;
+    let checkOperator = 0;
+    let result = 0;
+    let a = 0;
+    let checkDot = 1;
+
+    function holdnumber(number){
+      clickNumber += number;
+      holder = Number(clickNumber);
+      return holder;
+    }
+    //    1: +
+    //    2: -
+    //    3: X
+    //    4: / 
+    //    5: % 
+
+    function Calculate(){
+      if(checkOperator == 1){
+        result += a
+      } else if (checkOperator == 2) {
+        result -= a
+      } else if (checkOperator == 3){
+        result *= a
+      } else if (checkOperator == 4){
+        result /= a
+      } else if(checkOperator == 5){
+        result %= a
+      } else if (checkOperator == 0){
+        result = a
+      }
+    }
+  </script>
+</body>
+</html>
