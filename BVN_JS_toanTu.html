@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BVN 15-5</title>
+
+</head>
+<body>
+  <div style="display: grid; grid-template-columns: 700px 700px;">
+    <div>
+      <h1>Bài 3: Hiển thị tên</h1>
+      <button onclick=" document.getElementById('myname').innerHTML = 'Việt Bách'; ">Tên tui nè</button>
+      <p id="myname"></p>
+      <br>
+      <br>
+      <h1>Bài 4: So sánh số</h1>
+      <table>
+        <tr>
+          <td><label for="n1">Number a</label></td>
+          <td><label for="n1">Number b</label></td>
+        </tr>
+        <tr>
+          <td><input type="number" id="n1"></td>
+          <td><input type="number" id="n2"></td>
+        </tr>
+      </table>
+      <button onclick="compare();">So sánh</button>
+      <p id="sosanh"></p>
+      <br>
+      <h1>Bài 5: Hình chữ nhật</h1>
+      <table>
+        <tr>
+          <td><label for="chieuDai">Nhập chiều dài (px)</label></td>
+          <td><label for="chieuRong">Nhập chiều rộng (px)</label></td>
+        </tr>
+        <tr>
+          <td><input type="number" id="chieuDai"></td>
+          <td><input type="number" id="chieuRong"></td>
+        </tr>
+      </table>
+      <button onclick="tinhtoan();rectangle();">Nhập</button>
+
+      <p id="tinhtoan"></p>
+      <div>
+        <svg id="rectangle" width="700" height="200">
+        </svg>
+      </div>
+    </div>
+    
+    <div>
+      <h1>Bài 6: Tạo form</h1>
+      <form action="">
+        <table>
+
+          <tr>
+            <td>
+              <label for="user_name">Username</label>
+            </td>
+            <td>
+              <input type="text" name="user_name">
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+              <label for="matkhau">Password</label>
+            </td>
+            <td>
+              <input type="password" name="Password">
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+              <label for="city">City of employment</label>
+            </td>
+            <td>
+              <input type="text" name="city">
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+              <label for="user_name">Web server</label>
+            </td>
+            <td>
+              <div>
+                <select>
+                  <option value="">A</option>
+                  <option value="">B</option>
+                  <option value="">C</option>
+                </select>
+              </div>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+              <label for="city">Specify your role</label>
+            </td>
+            <td>
+              <div>
+                <input type="radio">Admin <br>
+                <input type="radio">Engineer <br>
+                <input type="radio">Manager<br>
+                <input type="radio">Guest<br>
+              </div>
+            </td>
+          </tr> 
+
+          <tr>
+            <td>
+              <label for="city">Single Sign-on</label>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox">Mail <br>
+                <input type="checkbox">Payroll <br>
+                <input type="checkbox">Self-service<br>
+              </div>
+            </td>
+          </tr> 
+
+          <tr>
+            <td colspan="2" >
+              <button type="submit">Login</button>
+              <button type="submit">Reset</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+  <script>
+    // Bài 2
+    let a = 10 * (2 + '3') - '30' +  20 / '5' - 1 - ('11' + 5 / '6')
+    alert(a);
+    alert(typeof a);
+    // Bài 3: trên nút button
+    // Bài 4:
+    function compare(){
+      let giaTri1 = document.getElementById('n1').value;
+      let giaTri2 = document.getElementById('n2').value;
+
+      if(giaTri1 > giaTri2){
+        document.getElementById('sosanh').innerHTML =' Giá trị a lớn hơn giá trị b '
+      } else if (giaTri1 < giaTri2) {
+        document.getElementById('sosanh').innerHTML =' Giá trị a nhỏ hơn giá trị b '
+      } else {
+        document.getElementById('sosanh').innerHTML =' Giá trị a bằng giá trị b '
+      }
+    }
+
+    
+    // Bài 5:
+    function rectangle() {
+      let chuvi = document.getElementById('rectangle').innerHTML;
+      let dai = document.getElementById('chieuDai').value;
+      let rong = document.getElementById('chieuRong').value;
+      document.getElementById('rectangle').innerHTML = `<rect  width="${dai}" height="${rong}" x="10" y="10" style="fill:rgb(0,0,255);stroke-width:3;stroke:red" />`
+    }
+
+    function tinhtoan(){
+      let dai = Number(document.getElementById('chieuDai').value);
+      let rong = Number(document.getElementById('chieuRong').value);
+      document.getElementById('tinhtoan').innerHTML = `Chu vi là ${dai+rong}px ; Dien tich là ${dai * rong}px^2` ;
+    }
+  </script>
+</body>
+</html>
