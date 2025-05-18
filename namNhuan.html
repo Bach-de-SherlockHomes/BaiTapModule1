@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra năm nhuận</title>
+</head>
+<body>
+  <label for="namNhuan">Nhập năm:</label>
+  <input type="text" id="namNhuan" onkeydown="checkEnter(event);checkNamNhuan()">
+
+  <script>
+    let checkNam;
+  
+
+  function checkEnter(event){
+    if (event.key === 'Enter'){
+      checkNam = Number(document.getElementById('namNhuan').value);
+      console.log(checkNam);
+    }
+  }
+
+  function checkNamNhuan(){
+  while (checkNam != null ){
+      if (checkNam % 4 == 0 && checkNam % 100 != 0) {
+        alert(checkNam + ' là năm nhuận')
+        checkNam = null;
+        break;
+      } else if (checkNam % 100 == 0 && checkNam % 400 != 0) {
+        alert(checkNam + ' không là năm nhuận')
+        checkNam = null;
+        break;
+      }else if (checkNam % 400 == 0 && checkNam % 100 == 0) {
+        alert(checkNam + ' là năm nhuận')
+        checkNam = null;
+        break;
+      } else {
+        alert(checkNam + ' không là năm nhuận')
+        checkNam = null;
+        break;
+      }
+
+    }
+  }
+
+  </script>
+</body>
+</html>

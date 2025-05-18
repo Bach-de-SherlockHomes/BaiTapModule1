@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+   <script>
+      // <!-- Bai 1 -->
+    let a = +prompt("Nhap a")
+    let b = +prompt("Nhap b")
+    if (a % b == 0) {
+      alert ("a chia het cho b");
+    } else {
+      alert ("a khong chia het cho b");
+    }
+    // Bài 2
+    let tuoi = +prompt("Nhap tuoi")
+    if (tuoi < 16) {
+      alert("Chua du dieu kien vao lop 10")
+    } else{  alert(" Du dieu kien vao lop 10")}
+
+    // Bài 3
+    let so = +prompt("Nhap so")
+    if (so > 0) {
+      alert("So nay lon hon 0")
+    } else if(so == 0){  alert("So nay bằng 0")}
+    else {alert("So nay nho hon 0")}
+    // Bài 4
+    let songuyen1 = +prompt("Nhap so 1")
+    let songuyen2 = +prompt("Nhap so 2")
+    let songuyen3 = +prompt("Nhap so 3")
+    if (songuyen1 >= songuyen2) {
+      if (songuyen1 >= songuyen3){
+        alert(songuyen1 +'là số lớn nhất')
+      } else { alert(songuyen3 +'là số lớn nhất')}
+    } else {
+      if (songuyen2 >= songuyen3){
+        alert(songuyen2 +'là số lớn nhất')
+      } else { alert(songuyen3 +'là số lớn nhất')}
+    }
+      
+   // Bài 5
+
+    let diemGiuaky = +prompt("Nhap diem giua ky")
+    let diemCuoiky = +prompt("Nhap diem cuoi ky")
+    let diemKiemtra = +prompt("Nhap diem kiem tra")
+    let trungBinh = (diemGiuaky + diemCuoiky + diemKiemtra)/3
+    if (trungBinh >=5 && trungBinh < 8.5 ) {
+      alert(`Diem trung binh là ${trungBinh}. Ban là học sinh khá` )
+    } else if (trungBinh < 5 ) {
+      alert(`Diem trung binh là ${trungBinh}. Ban là học sinh kém` )
+    } else {
+      alert(`Diem trung binh là ${trungBinh}. Ban là học sinh giỏi` )
+    }
+
+  // Bài 6
+  let daoanhSo = +prompt("Nhap doanh số")
+  let hoaHong = 5;
+  alert("Hoa hồng là" +hoaHong+'%' +". Tiền hoa hồng là: "+ hoaHong*daoanhSo/100 )
+
+  // Bài 7
+  let soPHUT = +prompt("sỐ PHÚT GỌI ĐIỆN THOẠI")
+  alert ("Cước điện thoại là 200đ/1p")
+  alert("Tiền cước điện thoại là: " +soPHUT*200 +"nghìn đồng")
+
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoYouLoveMe</title>
+</head>
+<body>
+  <h1 style="position:absolute; left:220px; top:175px;">DoYouLoveMe?</h1>
+  <button style="position:absolute; left:285px; top:235px;" onclick="alert(`Yes you're right`)">Yes</button>
+  <button style="position:absolute; left:360px; top:235px;" onmouseover="hover(); " id="buttonNo">No</button>
+
+
+  <script>
+    function hover(){
+      let vari = Math.random();
+      let checkButton = document.getElementById("buttonNo")
+      checkButton.style.left = vari * window.innerWidth +'px'
+      checkButton.style.top = vari * window.innerHeight +'px'
+    }
+  </script>
+</body>
+</html>
