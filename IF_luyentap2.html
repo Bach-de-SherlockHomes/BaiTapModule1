@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luyện tập cấu trúc điều kiện 02</title>
+</head>
+<body>
+  <h1>BAI 3</h1>
+  <label for="">Nhap canh a</label>
+  <input type="number" id="canhHinhvuong">cm
+  <button onclick="document.getElementById('S_hinhvuong').innerHTML = document.getElementById('canhHinhvuong').value ** 2 ">Nhap</button>
+  <p id="S_hinhvuong"></p>
+
+  <h1>BAI 4</h1>
+  <label for="">Nhap chieu dai</label>
+  <input type="number" id="chieudai">cm
+  <label for="">Nhap chieu rong</label>
+  <input type="number" id="chieurong">cm
+
+  <button onclick="document.getElementById('S_hcn').innerHTML = document.getElementById('chieudai').value * document.getElementById('chieurong').value ">Nhap</button>
+  <p id="S_hcn"></p>
+
+  <h1>BAI 5</h1>
+  <label for="">Nhap canh a</label>
+  <input type="number" id="canh_ke_a">cm
+  <label for="">Nhap canh b</label>
+  <input type="number" id="canh_ke_b">cm
+
+  <button onclick="document.getElementById('S_tamgiacvuong').innerHTML = 1/2 * document.getElementById('canh_ke_a').value * document.getElementById('canh_ke_b').value ">Nhap</button>
+  <p id="S_tamgiacvuong"></p>
+
+  <h1>BAI 6: Giai phuong trinh ax +b = 0</h1>
+  <label for="">Nhap a</label>
+  <input type="number" id="thamsoa">
+  <br>
+  <label for="">Nhap b</label>
+  <input type="number" id="thamsob">
+  <br>
+  <button onclick="document.getElementById('nghiemX').innerHTML = 'X =' + (document.getElementById('thamsob').value * -1)/document.getElementById('thamsoa').value ">Nhap</button>
+  <p id="nghiemX"></p>
+
+  <h1>BAI 7: Giai phuong trinh ax^2 +bx + c = 0</h1>
+  <label for="">Nhap a</label>
+  <input type="number" id="thamsoa2">
+  <br>
+  <label for="">Nhap b</label>
+  <input type="number" id="thamsob2">
+  <br>
+  <label for="">Nhap c</label>
+  <input type="number" id="thamsoc2">
+  <br>
+  <button onclick="timX(); ">Nhap</button>
+  <p id="nghiemX2"></p>
+
+  <h1>BAI 8</h1>
+  <label for="">Nhap tuoi</label>
+  <input type="number" id="tuoi">
+  <button onclick="if (Number(document.getElementById('tuoi').value) < 120 && Number(document.getElementById('tuoi').value) > 0 ) {
+    document.getElementById('checkTuoi').innerHTML = 'Tuoi nguoi'
+  } else {document.getElementById('checkTuoi').innerHTML = 'Ko phai tuoi nguoi' };">Nhap</button>
+  <p id="checkTuoi"></p>
+
+  <h1>BAI 9</h1>
+   <label for="">Nhap a</label>
+  <input type="number" id="canhTamgiaca">
+  <br>
+  <label for="">Nhap b</label>
+  <input type="number" id="canhTamgiacb">
+  <br>
+  <label for="">Nhap c</label>
+  <input type="number" id="canhTamgiacc">
+  <br>
+  <button onclick="checkTamgiac();">Nhap</button>
+  <p id="checkCanh"></p>
+   <script>
+  // Bai 1
+  let doC = Number(prompt("Nhap do C"))
+  alert( "Do F la: " + (doC *9/5 +32) )
+
+  // Bai 2
+  let met = Number(prompt("Nhap met"))
+  alert( "Feet la: " + (met * 3.2808) )
+
+  // Bai 7
+  function timX(){
+  let thamso = document.getElementById('thamsoa2').value
+  let thamso2 = document.getElementById('thamsob2').value
+  let thamso3 = document.getElementById('thamsoc2').value
+  let delTa = thamso2**2 - 4*thamso*thamso3;
+  if (delTa < 0) {
+    document.getElementById('nghiemX2').innerHTML = 'PT vo nghiem'
+  } else if (delTa == 0) {
+    document.getElementById('nghiemX2').innerHTML = 'Pt co nghiem kep: ' + (-thamso2 /( 2*thamso))
+  } else {
+    document.getElementById('nghiemX2').innerHTML = 'Pt co  2 nghiem: ' + ((-thamso2 + Math.sqrt(delTa) )/( 2*thamso)) +' va ' +((-thamso2 - Math.sqrt(delTa) )/( 2*thamso))
+  }
+  }
+
+  // Bai 9
+  function checkTamgiac(){
+    let canha = Number(document.getElementById('canhTamgiaca').value)
+    let canhb = Number(document.getElementById('canhTamgiacb').value)
+    let canhc = Number(document.getElementById('canhTamgiacc').value)
+
+    if (canha < 0 || canhb <0 || canhc < 0) {
+      document.getElementById('checkCanh').innerHTML = 'Ko phai tam giac'
+    } else if (((canha +canhb) <canhc) || ((canha +canhc) <canhb) || ((canhc +canhb) < canha) ) {
+      document.getElementById('checkCanh').innerHTML = 'Ko phai tam giac' 
+    } else {document.getElementById('checkCanh').innerHTML = 'La tam giac' }
+  }
+
+   </script>
+</body>
+</html>
