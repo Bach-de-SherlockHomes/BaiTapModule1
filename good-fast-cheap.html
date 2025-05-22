@@ -96,27 +96,33 @@
 <body>
   <div>
     <div style="position: relative;">
+      
       <input type="text" class="changeColor1" style="border-radius: 10px; width: 60px; margin-left: 8px;" id="">
-      <div class="test" onclick="clickNo('test',checkStatus1,'changeColor1');checkStatus1 = changeStatus(checkStatus1); console.log(checkStatus1)">NO</div>
+      <div class="test" onclick="clickNo('test',checkStatus1,'changeColor1');checkStatus1 = changeStatus(checkStatus1);logicGood(); console.log(checkStatus1)">NO</div>
+      <label for="">Good</label>
     </div>
     <br>
     <br>
     <div style="position: relative;">
+      
       <input type="text" class="changeColor2" style="border-radius: 10px;width: 60px; margin-left: 8px;" id="">
-      <div class="test1" onclick="clickNo('test1',checkStatus2,'changeColor2');checkStatus2 = changeStatus(checkStatus2);console.log(checkStatus2)">NO</div>
+      <div class="test1" onclick="clickNo('test1',checkStatus2,'changeColor2');checkStatus2 = changeStatus(checkStatus2);logicCheap();console.log(checkStatus2)">NO</div>
+      <label for="">Fast</label>
     </div>
     <br>
     <br>
+
     <div style="position: relative;">
       <input type="text" class="changeColor3" style="border-radius: 10px;width: 60px; margin-left: 8px;" id="">
-      <div class="test2" onclick="clickNo('test2',checkStatus3,'changeColor3');checkStatus3 = changeStatus(checkStatus3);console.log(checkStatus3)">NO</div>
+      <div class="test2" onclick="clickNo('test2',checkStatus3,'changeColor3');checkStatus3 = changeStatus(checkStatus3);logicFast();console.log(checkStatus3)">NO</div>
+      <label for="">Cheap</label>
     </div>
 
   </div>
 
   
   <script>
-    let checkStatus1 = 0;
+    let checkStatus1 = 0;  
     let checkStatus2 = 0;
     let checkStatus3 = 0;
     function clickNo(bien,bien2,bien3){
@@ -139,6 +145,32 @@
       } else if (bien ==1 )
       {bien = 0; }
       return bien;
+    }
+
+    function logicGood(){
+      if(checkStatus2 ==1 && checkStatus3 == 1){
+        document.querySelector(`.test2`).style.animationName = 'moveBackward';
+        document.querySelector(`.test2`).innerHTML = 'No';
+        document.querySelector(`.changeColor3`).style.animationName = 'colorInputback';
+        checkStatus3 = 0;
+      }
+    }
+    function logicFast(){
+      if(checkStatus1 ==1 && checkStatus2 == 1){
+        document.querySelector(`.test1`).style.animationName = 'moveBackward';
+        document.querySelector(`.test1`).innerHTML = 'No';
+        document.querySelector(`.changeColor2`).style.animationName = 'colorInputback';
+        checkStatus2 = 0;
+      }
+    }
+    function logicCheap(){
+      if(checkStatus1 ==1 && checkStatus3 == 1){
+        document.querySelector(`.test`).style.animationName = 'moveBackward';
+        document.querySelector(`.test`).innerHTML = 'No';
+        document.querySelector(`.changeColor1`).style.animationName = 'colorInputback';
+        checkStatus1 = 0;
+      }
+
     }
 
   </script>
