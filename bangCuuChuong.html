@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bang cửu chương</title>
+</head>
+<body>
+  <script>
+    let rong ='<table border =1 style="border-collapse: collapse;">';
+    for(let i =1; i<= 10; i++){
+      rong += '<tr>'
+      for (let j = 2; j <= 9; j++) {
+        rong += '<td>'
+        rong += `${j}X${i}=${i*j}`
+        rong += '</td>'
+      }
+      rong += '</tr>'
+    }
+    rong += '</table>'
+    document.write(rong);
+    console.log(rong);
+  </script>
+</body>
+</html>
