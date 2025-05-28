@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Bài 1</h1>
+  <label for="">Nhập 10 số</label><br>
+  <input type="number" id="nhapgiaTri1">
+  <button onclick="addArray();">Add</button>
+  <button onclick="arrayB1 = []; dem=0;document.getElementById('xuathienMang1').innerHTML =''; document.getElementById('inKQ').innerHTML = '';">Reset</button>
+  <p id="xuathienMang1"></p>
+  <p id="inKQ1"></p>
+
+  <h1>Bài 2</h1>
+  <label for="">Nhập 10 số</label><br>
+  <input type="number" id="nhapgiaTri2">
+  <button onclick="addArray();">Add</button>
+  <button onclick="arrayB1 = []; dem=0;document.getElementById('xuathienMang2').innerHTML =''; document.getElementById('inKQ').innerHTML = '';">Reset</button>
+  <p id="xuathienMang2"></p>
+  <p id="inKQ2"></p>
+
+
+
+  <script>
+    let arrayB1 = [];
+    let dem = 0;
+    const addArray = () => {
+      let checkgiaTri = document.getElementById('nhapgiaTri1').value;
+      console.log(typeof(checkgiaTri));
+      let checkKQ = 0;
+      dem++;
+      if (dem <= 10) {
+        arrayB1.push(checkgiaTri);
+        document.getElementById('xuathienMang1').innerHTML = 'Các phần tử trong mảng là '+ arrayB1.join(',');
+        console.log(arrayB1);
+      } else { alert('Giới hạn là 10 số') }
+
+      if (dem == 10){
+        arrayB1.forEach((value) => {if(value >= 10 ){checkKQ++}})
+        document.getElementById('inKQ1').innerHTML = 'Số phần tử >=10 là: '+checkKQ;
+      }
+     
+    }
+  </script>
+</body>
+
+</html>
