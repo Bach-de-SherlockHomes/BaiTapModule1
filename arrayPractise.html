@@ -11,41 +11,248 @@
   <h1>Bài 1</h1>
   <label for="">Nhập 10 số</label><br>
   <input type="number" id="nhapgiaTri1">
-  <button onclick="addArray();">Add</button>
-  <button onclick="arrayB1 = []; dem=0;document.getElementById('xuathienMang1').innerHTML =''; document.getElementById('inKQ').innerHTML = '';">Reset</button>
+  <button onclick="addArray1();">Add</button>
+  <button
+    onclick="arrayB1 = []; dem=0;document.getElementById('xuathienMang1').innerHTML =''; document.getElementById('inKQ1').innerHTML = '';">Reset</button>
   <p id="xuathienMang1"></p>
   <p id="inKQ1"></p>
 
   <h1>Bài 2</h1>
   <label for="">Nhập 10 số</label><br>
   <input type="number" id="nhapgiaTri2">
-  <button onclick="addArray();">Add</button>
-  <button onclick="arrayB1 = []; dem=0;document.getElementById('xuathienMang2').innerHTML =''; document.getElementById('inKQ').innerHTML = '';">Reset</button>
+  <button onclick="addArray2();">Add</button>
+  <button
+    onclick="arrayB2 = []; dem2=0;document.getElementById('xuathienMang2').innerHTML =''; document.getElementById('inKQ2').innerHTML = '';">Reset</button>
   <p id="xuathienMang2"></p>
   <p id="inKQ2"></p>
+
+  <h1>Bài 3</h1>
+  <label for="">Nhập 10 số</label><br>
+  <input type="number" id="nhapgiaTri3">
+  <button onclick="addArray3();">Add</button>
+  <button
+    onclick="arrayB3 = []; dem3=0;document.getElementById('xuathienMang3').innerHTML =''; document.getElementById('inKQ3').innerHTML = '';">Reset</button>
+  <p id="xuathienMang3"></p>
+  <p id="inKQ3"></p>
+
+  <h1>Bài 4</h1>
+  <label for="">Nhập 10 số</label><br>
+  <input type="number" id="nhapgiaTri4">
+  <button onclick="addArray4();">Add</button>
+  <button
+    onclick="arrayB4 = []; dem4=0;document.getElementById('xuathienMang4').innerHTML =''; document.getElementById('inKQ4').innerHTML = '';">Reset</button>
+  <p id="xuathienMang4"></p>
+  <p id="inKQ4"></p>
+
+  <h1>Bài 7</h1>
+  <label for="">Nhập 10 số</label><br>
+  <input type="number" id="nhapgiaTri7">
+  <button onclick="addArray7();">Add</button>
+  <button
+    onclick="arrayB7 = []; dem7=0;document.getElementById('xuathienMang7').innerHTML =''; document.getElementById('inKQ7').innerHTML = '';">Reset</button>
+  <button onclick="soSanh();">Nhap v</button>
+  <p id="xuathienMang7"></p>
+  <p id="inKQ7"></p>
+
+  <h1>Bài 8</h1>
+  <label for="">Nhập 10 số</label><br>
+  <input type="number" id="nhapgiaTri8">
+  <button onclick="addArray8();">Add</button>
+  <button
+    onclick="arrayB8 = []; dem8=0;document.getElementById('xuathienMang8').innerHTML =''; document.getElementById('inKQ8').innerHTML = '';">Reset</button>
+  <p id="xuathienMang8"></p>
+  <p id="inKQ8"></p>
+
+
 
 
 
   <script>
+    // Bai 8
+    let arrayB8 = [];
+    let dem8 = 0;
+
+    const addArray8 = () => {
+
+      let checkgiaTri = document.getElementById('nhapgiaTri8').value;
+      let checkKQ = 0;
+      dem8++;
+      if (dem8 <= 10) {
+        arrayB8.push(Number(checkgiaTri));
+        document.getElementById('xuathienMang8').innerHTML = 'Các phần tử trong mảng là ' + arrayB8.join(',');
+        console.log(arrayB8);
+      } else { alert('Giới hạn là 10 số') }
+
+      if (dem8 == 10) {
+        sapXep();
+      }
+    }
+    const sapXep = () => {
+      let min = 0;
+      for (i = 0; i < arrayB8.length - 1; i++) {
+        for (j = i + 1; j < arrayB8.length; j++) {
+          if (arrayB8[i] < arrayB8[j]) {
+            min = arrayB8[i];
+            arrayB8[i] = arrayB8[j];
+            arrayB8[j] = min;
+          }
+        }
+      }
+      document.getElementById('inKQ8').innerHTML = arrayB8;
+    }
+
+
+    // Bai 7
+    let arrayB7 = [];
+    let dem7 = 0;
+
+    const addArray7 = () => {
+
+      let checkgiaTri = document.getElementById('nhapgiaTri7').value;
+      let checkKQ = 0;
+      dem7++;
+      if (dem7 <= 10) {
+        arrayB7.push(Number(checkgiaTri));
+        document.getElementById('xuathienMang7').innerHTML = 'Các phần tử trong mảng là ' + arrayB7.join(',');
+        console.log(arrayB7);
+      } else { alert('Giới hạn là 10 số') }
+
+    }
+
+    const soSanh = () => {
+      let v = +prompt('Nhaapj v')
+      for (i = 0; i < arrayB7.length; i++) {
+        if (arrayB7[i] == v) {
+          arrayB7.splice(i, 1);
+          arrayB7.push(0);
+          document.getElementById('inKQ7').innerHTML = arrayB7;
+          break;
+        }
+      }
+    }
+
+    // Bai 1
     let arrayB1 = [];
     let dem = 0;
-    const addArray = () => {
+
+    const addArray1 = () => {
       let checkgiaTri = document.getElementById('nhapgiaTri1').value;
-      console.log(typeof(checkgiaTri));
+      console.log(typeof (checkgiaTri));
       let checkKQ = 0;
       dem++;
       if (dem <= 10) {
         arrayB1.push(checkgiaTri);
-        document.getElementById('xuathienMang1').innerHTML = 'Các phần tử trong mảng là '+ arrayB1.join(',');
+        document.getElementById('xuathienMang1').innerHTML = 'Các phần tử trong mảng là ' + arrayB1.join(',');
         console.log(arrayB1);
       } else { alert('Giới hạn là 10 số') }
 
-      if (dem == 10){
-        arrayB1.forEach((value) => {if(value >= 10 ){checkKQ++}})
-        document.getElementById('inKQ1').innerHTML = 'Số phần tử >=10 là: '+checkKQ;
+      if (dem == 10) {
+        arrayB1.forEach((value) => { if (value >= 10) { checkKQ++ } })
+        document.getElementById('inKQ1').innerHTML = 'Số phần tử >=10 là: ' + checkKQ;
       }
-     
+
     }
+
+    // Bai 2
+    let arrayB2 = [];
+    let dem2 = 0;
+    const addArray2 = () => {
+      let checkgiaTri = document.getElementById('nhapgiaTri2').value;
+      let checkKQ = 0;
+      let checkTrung = 0;
+      dem2++;
+
+      if (dem2 <= 10) {
+        for (i =0; i < arrayB2.length; i++){
+          if (arrayB2[i] == checkgiaTri) {
+            checkTrung++
+          }
+        }
+        if (checkTrung > 0){
+          alert('Nhap trung')
+        } else {
+        arrayB2.push(checkgiaTri);
+        document.getElementById('xuathienMang2').innerHTML = 'Các phần tử trong mảng là ' + arrayB2.join(',');
+        console.log(arrayB2);
+        checkTrung =0;
+        }
+        
+      } else { alert('Giới hạn là 10 số') }
+      let checkMax = parseInt(arrayB2[0]);
+      let checkIndex = 0;
+
+      for (let index = 1; index < arrayB2.length; index++) {
+        if (checkMax <= parseInt(arrayB2[index])) {
+          checkMax = parseInt(arrayB2[index]);
+          console.log(typeof (arrayB2[index]));
+          checkIndex = index;
+        }
+      }
+      document.getElementById('inKQ2').innerHTML = 'Max trong mang la  : ' + checkMax + '.Index la: ' + checkIndex;
+
+    }
+
+    // Bai 3
+    let arrayB3 = [];
+    let dem3 = 0;
+    const addArray3 = () => {
+      let checkgiaTri = document.getElementById('nhapgiaTri3').value;
+      let checkKQ = 0;
+      dem3++;
+      if (dem3 <= 10) {
+        arrayB3.push(checkgiaTri);
+        document.getElementById('xuathienMang3').innerHTML = 'Các phần tử trong mảng là ' + arrayB3.join(',');
+        console.log(arrayB3);
+      } else { alert('Giới hạn là 10 số') }
+      let checkMax = parseInt(arrayB3[0]);
+      let checkIndex = 0; arrayB3
+      let sum = parseInt(arrayB3[0]);
+      for (let index = 1; index < arrayB3.length; index++) {
+        sum += parseInt(arrayB3[index]);
+        if (checkMax <= parseInt(arrayB3[index])) {
+          checkMax = parseInt(arrayB3[index]);
+          console.log(typeof (arrayB3[index]));
+          checkIndex = index;
+        }
+      }
+      console.log(sum);
+      document.getElementById('inKQ3').innerHTML = 'Max trong mang la  : ' + checkMax + '.Trung binh la: ' + sum / arrayB3.length;
+    }
+
+    // Bai4
+    let arrayB4 = [];
+    let dem4 = 0;
+    const addArray4 = () => {
+      let checkgiaTri = document.getElementById('nhapgiaTri4').value;
+      let checkKQ = 0;
+      dem4++;
+      if (dem4 <= 10) {
+        arrayB4.push(checkgiaTri);
+        document.getElementById('xuathienMang4').innerHTML = 'Các phần tử trong mảng là ' + arrayB4.join(',');
+        console.log(arrayB4);
+      } else { alert('Giới hạn là 10 số') }
+
+      let indexDau = 0;
+      let indexCuoi = arrayB4.length - 1;
+      let holerGiua = 0;
+      if (dem4 == 10) {
+        while (indexDau < indexCuoi) {
+          holerGiua = arrayB4[indexDau];
+          arrayB4[indexDau] = arrayB4[indexCuoi];
+          arrayB4[indexCuoi] = holerGiua;
+          indexDau++;
+          indexCuoi--;
+        }
+        document.getElementById('inKQ4').innerHTML = 'Mang nguoc la  : ' + arrayB4;
+      }
+    }
+
+
+
+
+
+
+
   </script>
 </body>
 
