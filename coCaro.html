@@ -10,18 +10,21 @@
 <body>
 
   <pre id="banCo" style="font-size: 20px;"></pre>
-  <button onclick="changeViTri();">Change</button>
+  <button onclick="changeViTri(); if (check == 1) {
+    check = 0;
+  }else { check = 1;} ">Change</button>
 
   <script>
     let N = +prompt('Nhap N dong')
     let M = +prompt('Nhap M cot')
     let myArray = [];
     let sideArray = [];
+    let check = 1;
 
     const generateMang = () => {
       for (i = 0; i < N; i++) {
         for (j = 0; j < M; j++) {
-          sideArray.push(0)
+          sideArray.push('(.)')
         }
         myArray.push(sideArray)
         sideArray = [];
@@ -34,23 +37,63 @@
     const inMangHTML = () => {
       for (i = 0; i < N; i++) {
         for (j = 0; j < M; j++) {
-          holder += myArray[i][j] + ' ' 
+          holder += myArray[i][j] + '  '
         }
         holder += '\n'
         sideArray = [];
       }
       document.getElementById('banCo').innerHTML = holder;
-      holder ='';
+      holder = '';
     }
     inMangHTML();
+
+    const thongbaoWin = () => {
+      for (i = 0; i < N; i++) {
+        for (j = 0; j < M; j++) {
+          if (myArray[i][j]  == 'X' && myArray[i+1][j]  == 'X' && myArray[i+2][j]  == 'X' ){
+            alert('X thang')
+          }
+          if (myArray[i][j]  == 'X' && myArray[i][j+1]  == 'X' && myArray[i][j+2]  == 'X' ){
+            alert('X thang')
+          }
+          if (myArray[i][j]  == 'X' && myArray[i+1][j+1]  == 'X' && myArray[i+2][j+2]  == 'X' ){
+            alert('X thang')
+          }
+          if (myArray[i][j]  == 'X' && myArray[i+1][j-1]  == 'X' && myArray[i+2][j-2]  == 'X' ){
+            alert('X thang')
+          }
+          if (myArray[i][j]  == 'O' && myArray[i+1][j]  == 'O' && myArray[i+2][j]  == 'O' ){
+            alert('O thang')
+          }
+          if (myArray[i][j]  == 'O' && myArray[i][j+1]  == 'O' && myArray[i][j+2]  == 'O' ){
+            alert('O thang')
+          }
+          if (myArray[i][j]  == 'O' && myArray[i+1][j+1]  == 'O' && myArray[i+2][j+2]  == 'O' ){
+            alert('O thang')
+          }
+          if (myArray[i][j]  == 'O' && myArray[i+1][j-1]  == 'O' && myArray[i+2][j-2]  == 'O' ){
+            alert('O thang')
+          }
+
+        }
+      }
+    }
 
     const changeViTri = () => {
       let changeDong = +prompt('Thay doi dong thu:')
       let changeCot = +prompt('Thay doi cot thu:')
-      if(changeDong <= 0 || changeCot <= 0){
+      
+      if (changeDong <= 0 || changeCot <= 0) {
         alert("Nhap lai")
-      }else {myArray[changeDong-1][changeCot-1] = 'X';
+      } else {
+        if (check == 1){
+          myArray[changeDong - 1][changeCot - 1] = 'X';
+        } else {
+          myArray[changeDong - 1][changeCot - 1] = 'O';
+        }
+        
         inMangHTML();
+        thongbaoWin();
       }
 
     }
