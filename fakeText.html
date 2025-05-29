@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Text</title>
+</head>
+
+<body style="text-align: center ; margin: auto;">
+  <h1>Type anything slowly</h1>
+  <textarea style="height: 100px; width: 300px;" id="fakeType" onkeydown="setTimeout('fakeWord()',1);"></textarea>
+
+  <script>
+    let myString = 'Tôi là một đứa ngốc!!'
+    let fakeHolder = '';
+    let dem = 0;
+  
+    const fakeWord = () => {
+      fakeHolder += myString[dem];
+      
+      document.getElementById('fakeType').value = fakeHolder;
+      dem++
+      if (dem == myString.length +1) {
+        dem = 0;
+        document.getElementById('fakeType').value = '';
+        fakeHolder ='';
+      }
+     
+    }
+  </script>
+</body>
+
+</html>
