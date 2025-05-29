@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Co CARO</title>
+</head>
+
+<body>
+
+  <pre id="banCo" style="font-size: 20px;"></pre>
+  <button onclick="changeViTri();">Change</button>
+
+  <script>
+    let N = +prompt('Nhap N dong')
+    let M = +prompt('Nhap M cot')
+    let myArray = [];
+    let sideArray = [];
+
+    const generateMang = () => {
+      for (i = 0; i < N; i++) {
+        for (j = 0; j < M; j++) {
+          sideArray.push(0)
+        }
+        myArray.push(sideArray)
+        sideArray = [];
+      }
+    }
+    generateMang();
+    console.log(myArray);
+
+    let holder = '';
+    const inMangHTML = () => {
+      for (i = 0; i < N; i++) {
+        for (j = 0; j < M; j++) {
+          holder += myArray[i][j] + ' ' 
+        }
+        holder += '\n'
+        sideArray = [];
+      }
+      document.getElementById('banCo').innerHTML = holder;
+      holder ='';
+    }
+    inMangHTML();
+
+    const changeViTri = () => {
+      let changeDong = +prompt('Thay doi dong thu:')
+      let changeCot = +prompt('Thay doi cot thu:')
+      if(changeDong <= 0 || changeCot <= 0){
+        alert("Nhap lai")
+      }else {myArray[changeDong-1][changeCot-1] = 'X';
+        inMangHTML();
+      }
+
+    }
+
+  </script>
+</body>
+
+</html>
