@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Practice 2</title>
+</head>
+
+<body>
+
+  <script>
+    let arr = [
+      [1, 3, 4],
+      [3, 4, 5],
+      [5, 5, 6]
+    ];
+
+    // Bài 1
+    let sum = 0;
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        sum += arr[i][j];
+      }
+    }
+    console.log(sum);
+    // Bài 2
+    let sum2 = 0;
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        sum2 += arr[i][j];
+      }
+      console.log(sum2);
+      sum2 = 0;
+    }
+
+    // Bài 3
+    for (let i = 0; i < 3; i++) {
+      let max = arr[i][0];
+      for (let j = 0; j < 3; j++) {
+        if (arr[i][j] > max) {
+          max = arr[i][j];
+        }
+      }
+      console.log('Max của hàng thứ ' + i + ' là ' + max);
+    }
+
+    // Bài 4
+    let i = 0;
+    let j = 0;
+    let max2 = arr[i][j]
+    while (i < 3) {
+      if (max2 < arr[i][j]) {
+        max2 = arr[i][j];
+      }
+      i++;
+      j++;
+    }
+    console.log(max2)
+    i = 0;
+    j = 2;
+    let max3 = arr[i][j]
+    while (i < 3) {
+      if (max3 < arr[i][j]) {
+        max3 = arr[i][j];
+      }
+      i++;
+      j--;
+    }
+    console.log(max3)
+
+
+
+  </script>
+</body>
+
+</html>
