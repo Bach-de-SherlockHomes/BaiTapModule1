@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý sản phẩm</title>
+</head>
+<body>
+  <h1>ADD NEW PRODUCT</h1>
+  <input type="text" placeholder="New Product" id="valueHolder">
+  <button onclick="addValue();generateValue();" >ADD</button>
+  <h2>Display all product</h2>
+  <h3>Product name</h3>
+  <div id="productName" style="display: grid; grid-template-columns: 1fr 1fr 1fr; width: 300px;"></div>
+
+
+  <script>
+
+    let myArray = [];
+    let holder ='';
+
+    function addValue(){
+      let a = document.getElementById('valueHolder').value;
+      myArray.push(a);
+    }
+
+    function generateValue(){
+      for (let index = 0; index < myArray.length; index++) {
+          holder += `<input value = "${myArray[index]}" disabled id="inputtest${index}">
+                    <button id="test${index}" onclick="changeEdit(${index});">Edit</button>
+                    <button onclick = "myArray.splice(${index},1); generateValue()" >Delete</button>
+                    `
+      }
+      document.getElementById('productName').innerHTML = holder;
+      holder = '';
+    }
+
+    function changeEdit(so){
+      let a = document.getElementById(`test${so}`).innerHTML
+      if (a == 'Edit') {
+        document.getElementById(`test${so}`).innerHTML = 'Save'
+        document.getElementById(`inputtest${so}`).removeAttribute("disabled");
+      } else {
+        document.getElementById(`test${so}`).innerHTML = 'Edit'
+        document.getElementById(`inputtest${so}`).setAttribute("disabled","")
+      }
+    }
+   
+
+  </script>
+</body>
+</html>
