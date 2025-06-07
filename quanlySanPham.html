@@ -8,7 +8,11 @@
 <body>
   <h1>ADD NEW PRODUCT</h1>
   <input type="text" placeholder="New Product" id="valueHolder">
-  <button onclick="addValue();generateValue();" >ADD</button>
+  <button onclick="addValue();localStorage.setItem('haha',JSON.stringify(myArray));generateValue();" >ADD</button>
+  <br>
+  <br>
+  <input type="text" placeholder="Search" id="srchHolder" onkeyup="console.log(document.getElementById('srchHolder').value);keyUP();">
+  <button onclick="searchName();" >SEARCH</button>
   <h2>Display all product</h2>
   <h3>Product name</h3>
   <div id="productName" style="display: grid; grid-template-columns: 1fr 1fr 1fr; width: 300px;"></div>
@@ -16,9 +20,11 @@
 
   <script>
 
-    let myArray = [];
+    let myArray =[];
     let holder ='';
-
+    let b;
+    myArray = JSON.parse(localStorage.getItem('haha'));
+    console.log(myArray);
     function addValue(){
       let a = document.getElementById('valueHolder').value;
       myArray.push(a);
@@ -45,8 +51,31 @@
         document.getElementById(`inputtest${so}`).setAttribute("disabled","")
       }
     }
-   
 
+    function searchName(){
+      let test = new RegExp('.*' + document.getElementById('srchHolder').value +'.*');
+      b = myArray.filter( (name) => { 
+          if (name.match(test)) {
+            return true;
+          } else return false;
+          
+      })
+
+       for (let index = 0; index < b.length; index++) {
+          holder += `<input value = "${b[index]}" disabled id="inputtest${index}">
+                    <button id="test${index}" onclick="changeEdit(${index});">Edit</button>
+                    <button onclick = "b.splice(${index},1); searchName()" >Delete</button>
+                    `
+      } 
+      document.getElementById('productName').innerHTML = holder;
+      holder = '';
+    }
+
+    function keyUP(){
+      if(document.getElementById('srchHolder').value == ''){generateValue();}
+      else { searchName();}
+    }
+     
   </script>
 </body>
 </html>

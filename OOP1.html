@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    //     // 1. Hoàn thành bài tập: Viết một lớp các đối tượng hình chữ nhật lấy tên là Rectangle, mỗi hình chữ nhật đều có những đặc tính sau:
+    // + Có thông số chiều dài.
+    // + Có thông số chiều rộng.
+    // + Có tính năng tính diện tích.
+    // + Có tính năng tính chu vi.
+    // => Tạo một đối tượng HCN
+    // + Hiển thị thông tin hình chữ nhât lên web
+    // + Thay đổi chiều dài và chiều rộng của hình chữ nhật
+    // +  In ra màn hình diện tích và chu vi của hình chữ nhật đó.
+
+
+    // class Rectangle {
+    //   chieuDai;
+    //   chieuRong;
+
+    //   constructor(chieuDai, chieuRong) {
+    //     this.chieuDai = chieuDai;
+    //     this.chieuRong = chieuRong;
+    //   }
+
+    //   tinhChuVi() {
+    //     return (this.chieuDai + this.chieuRong) * 2
+    //   }
+
+    //   tinhS() {
+    //     return (this.chieuDai * this.chieuRong)
+    //   }
+    // }
+
+    // let a = new Rectangle(10, 20);
+    // alert(a.chieuDai);
+    // alert(a.chieuRong);
+    // alert(a.tinhChuVi());
+    // alert(a.tinhS());
+
+    // // Bài 2: Bài tập Sinh Viên: Viết một lớp Student để quản lý thông tin sinh viên gồm các thuộc tính như tên, tuổi, một mảng điểm số. Tạo các phương thức cho phép thay đổi thông tin sinh viên, hiển thị thông tin sinh viên và tính trung bình điểm của sinh viên.
+    // //  => Tạo ra 2 đối tượng student và hiển thị sinh viên có điểm trung bình cao hơn.
+
+    //   class Student {
+    //   Name;
+    //   Age;
+    //   Score;
+
+    //   constructor(NameInput, AgeInput, ScoreInput) {
+    //     this.Name = NameInput;
+    //     this.Age = AgeInput;
+    //     this.Score = ScoreInput;
+    //   }
+
+    //   getInfo(){
+    //     alert('Học sinh 1 tên là ' +this.Name )
+    //     alert(this.Name + ' ' + this.Age +'tuổi')
+    //     alert('Điểm Toán Văn Anh lần lượt là: ' +this.Score[0] +',' + this.Score[1]+',' + this.Score[2] )
+    //   }
+
+    //   changeNameINFO() {
+    //     let a = prompt("Đối tên");
+    //     this.Name = a;
+    //     console.log(a);
+    //     console.log(this.Name);
+    //   }
+    //   changeAgeINFO() {
+    //     let b = +prompt("Đối tuổi");
+    //     this.Age = b;
+    //   }
+    //   changeScoreINFO() {
+    //     this.Score =[];
+    //     let Toan = +prompt("Đối điểm toán");
+    //     let Van = +prompt("Đối điểm văn");
+    //     let Anh = +prompt("Đối điểm Anh");
+    //     this.Score.push(Toan);
+    //     this.Score.push(Van);
+    //     this.Score.push(Anh);
+
+    //   }
+
+    //   tinhTB(){
+    //     let sum = 0;
+    //     let so = 0;
+    //     for (let index = 0; index < this.Score.length; index++) {
+    //       sum += this.Score[index]
+    //       so++;
+    //     }
+    //     console.log(sum/so);
+    //   }
+    // }
+
+    // let Bach = new Student("Bách",18,[10,10,10]);
+    // console.log(Bach);
+    // Bach.getInfo();
+    // Bach.changeNameINFO();
+    // console.log(Bach);
+    // Bach.changeAgeINFO();
+    // console.log(Bach);
+    // Bach.changeScoreINFO();
+    // console.log(Bach);
+    // Bach.tinhTB();
+
+    // Bài 3: Viết một lớp đối tượng Temperature
+    let html ='';
+    class Temperature {
+      DoC;
+      Min;
+
+      constructor(DoC, Min) {
+        this.DoC = DoC;
+        this.Min = Min;
+      }
+
+      changeF(){
+        html += 'Độ F là: ' + (this.DoC *9/5 +32) ;
+        document.write(html);
+        html = '';
+      }
+
+      changeK(){
+        html += 'Độ K là: ' + (this.DoC +275.15);
+        document.write(html);
+        html = '';
+      }
+    }
+
+    let Hanoi = new Temperature(30,-275);
+    Hanoi.changeF();
+    Hanoi.changeK();
+  </script>
+</body>
+
+</html>
