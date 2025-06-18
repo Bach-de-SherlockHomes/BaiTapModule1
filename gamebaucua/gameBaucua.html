@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="gameBaucua.css">
+
+
+
+</head>
+<body>
+<div style="width: 700px; margin: auto;">
+  <div style='display: flex; justify-content: center;' >
+    <button>
+      <img src="images/bau.png" alt="error" id="img1">
+    </button>
+    <button style="margin-left: 10px; margin-right: 10px;">
+      <img src="images/bau.png" alt="error" id="img2">
+    </button>
+    <button>
+      <img src="images/bau.png" alt="error" id="img3">
+    </button>
+  </div>
+  <br>
+  <div style="text-align: right;"><button  class="nutBam" onclick="disable();setbotObject();
+                                                          topObject = {'bau': 0 , 'cua' : 0 , 'tom': 0 ,'ca': 0 ,'huou': 0,'ga': 0};
+                                                          autoPlay('img1');autoPlay('img2');autoPlay('img3');setTimeout(soSanh,5001);  ">Quay</button></div>
+  <div style="display: flex;padding-top: 20px;  justify-content: space-between;">
+    <button class="test" onclick="if (soCheck < 3){ document.getElementById('bau').innerHTML = incre('bau');soCheck++}">
+      <img src="images/bau.png" alt="error">
+      <div style="position: absolute; top: 0; left: 1;" id="bau">0</div>
+    </button>
+    <button onclick="if (soCheck < 3){document.getElementById('cua').innerHTML = incre('cua');soCheck++}">
+      <img src="images/cua.png" alt="error" >
+      <div style="position: absolute; top: 0; left: 1; " id="cua">0</div>
+    </button>
+    <button onclick="if (soCheck < 3){document.getElementById('tom').innerHTML = incre('tom');soCheck++}">
+      <img src="images/tom.png" alt="error">
+      <div style="position: absolute; top: 0; left: 1;" id="tom">0</div>
+    </button>
+    <button onclick="if (soCheck < 3){document.getElementById('ca').innerHTML = incre('ca');soCheck++}">
+      <img src="images/ca.png" alt="error">
+      <div style="position: absolute; top: 0; left: 1;" id="ca">0</div>
+    </button>
+    <button onclick="if (soCheck < 3){document.getElementById('huou').innerHTML = incre('huou');soCheck++}">
+      <img src="images/huou.png" alt="error">
+      <div style="position: absolute; top: 0; left: 1;" id="huou">0</div>
+    </button>
+    <button onclick="if (soCheck < 3){document.getElementById('ga').innerHTML = incre('ga');soCheck++}">
+      <img src="images/ga.png" alt="error">
+      <div style="position: absolute; top: 0; left: 1;" id="ga">0</div>
+    </button>
+  </div>
+   <br>
+    <div style="text-align: right;"><button class="nutBam" onclick="resetAll();">Đặt lại</button></div>
+</div>
+
+
+<script>
+  let myArray = ['bau','cua','tom','ca','huou','ga'];
+  let soCheck = 0;
+  let topObject = {'bau': 0 , 'cua' : 0 , 'tom': 0 ,'ca': 0 ,'huou': 0,'ga': 0}
+  let botObject = {'bau': 0 , 'cua' : 0 , 'tom': 0 ,'ca': 0 ,'huou': 0,'ga': 0}
+  function setbotObject() {
+   botObject = { 'bau': document.getElementById('bau').innerHTML , 'cua' : document.getElementById('cua').innerHTML , 
+   'tom': document.getElementById('tom').innerHTML ,
+   'ca': document.getElementById('ca').innerHTML ,
+   'huou': document.getElementById('huou').innerHTML,
+   'ga': document.getElementById('ga').innerHTML
+    }
+  }
+
+  function autoPlay(idImg){
+    let dem = 0;
+    let id = setInterval(replay,50);
+    function replay(){
+      let bien = Math.random();
+      bien = Math.round(bien * (myArray.length -1));
+      if (dem == 100) {
+        clearInterval(id);
+      }else{
+        dem++
+        if (dem == 100) {topObject[myArray[bien]]++;
+         }
+        document.getElementById(`${idImg}`).src = `images/${myArray[bien]}.png`;
+        document.getElementById(`${idImg}`).width = 80;
+      }
+
+    }
+
+  }
+  
+  function incre(idSo){
+    let soDem = document.getElementById(`${idSo}`).innerHTML
+    if (soDem < 3){
+      soDem++
+    }
+    return soDem
+  }
+
+  function resetAll(){
+    soCheck = 0;
+    for (i = 0; i <myArray.length; i++ ){
+      document.getElementById(`${myArray[i]}`).innerHTML = 0;
+    }
+  }
+
+
+  function soSanh(){
+    let checkLast = 0;
+    let inKQ = '';
+  for (let index = 0; index < myArray.length; index++) {
+    if (botObject[myArray[index]] > 0) {
+      inKQ = inKQ + myArray[index] + ':' + botObject[myArray[index]] + ' ';
+    }
+     activate();
+  }
+
+    for (let index = 0; index < myArray.length; index++) {
+      if (botObject[myArray[index]] ==  topObject[myArray[index]]) {
+        continue;
+      } else {checkLast++}
+    }
+    if(checkLast > 0) {
+      console.log('Bạn đã đoán sai với kết quả:' + inKQ)
+    }else{
+      console.log('Bạn đã đoán đúng với kết quả:' + inKQ)
+    }
+  }
+
+  function disable(){
+    let disableList = document.querySelectorAll('button');
+    for (let index = 0; index < disableList.length; index++) {
+      disableList[index].setAttribute('disabled','')
+    }
+  }
+
+  function activate(){
+    let disableList = document.querySelectorAll('button');
+    console.log(disableList);
+    for (let index = 0; index < disableList.length; index++) {
+      disableList[index].removeAttribute('disabled');
+    }
+  }
+
+
+</script>
+</body>
+</html>

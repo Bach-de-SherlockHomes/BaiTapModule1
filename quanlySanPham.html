@@ -23,14 +23,15 @@
     let myArray =[];
     let holder ='';
     let b;
+    let anotherHolder = [];
     myArray = JSON.parse(localStorage.getItem('haha'));
-    console.log(myArray);
     function addValue(){
       let a = document.getElementById('valueHolder').value;
       myArray.push(a);
     }
 
     function generateValue(){
+      console.log(myArray);
       for (let index = 0; index < myArray.length; index++) {
           holder += `<input value = "${myArray[index]}" disabled id="inputtest${index}">
                     <button id="test${index}" onclick="changeEdit(${index});">Edit</button>
@@ -51,27 +52,46 @@
         document.getElementById(`inputtest${so}`).setAttribute("disabled","")
       }
     }
+    function searchchangeEdit(so,bien){
+      let rong ='';
+      let a = document.getElementById(`searchtest${so}`).innerHTML
+      if (a == 'Edit') {
+        document.getElementById(`searchtest${so}`).innerHTML = 'Save'
+        document.getElementById(`searchinputtest${so}`).removeAttribute("disabled");
+      } else {
+        document.getElementById(`searchtest${so}`).innerHTML = 'Edit'
+        myArray[bien] = document.getElementById(`searchinputtest${so}`).value;
+        console.log(bien);
+        console.log(document.getElementById(`searchinputtest${so}`).value);
+        console.log(myArray);
+        document.getElementById(`searchinputtest${so}`).setAttribute("disabled","")
+      }
+    }
+
 
     function searchName(){
       let test = new RegExp('.*' + document.getElementById('srchHolder').value +'.*');
-      b = myArray.filter( (name) => { 
+      b = myArray.filter( (name,index) => { 
           if (name.match(test)) {
+            anotherHolder.push(index);
             return true;
-          } else return false;
+          } else return false;  
           
       })
-
+        console.log(anotherHolder);
        for (let index = 0; index < b.length; index++) {
-          holder += `<input value = "${b[index]}" disabled id="inputtest${index}">
-                    <button id="test${index}" onclick="changeEdit(${index});">Edit</button>
-                    <button onclick = "b.splice(${index},1); searchName()" >Delete</button>
+          holder += `<input value = "${b[index]}" disabled id="searchinputtest${index}">
+                    <button id="searchtest${index}" onclick="searchchangeEdit(${index},${anotherHolder[index]});">Edit</button>
+                    <button onclick = "b.splice(${index},1);myArray.splice(${anotherHolder[index]},1); searchName()" >Delete</button>
                     `
       } 
       document.getElementById('productName').innerHTML = holder;
       holder = '';
+      anotherHolder=[];
     }
 
     function keyUP(){
+      console.log(myArray);
       if(document.getElementById('srchHolder').value == ''){generateValue();}
       else { searchName();}
     }
